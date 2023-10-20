@@ -1,144 +1,33 @@
-'''from conta import (Conta_corrente, Conta_poupanca)
-from random import randint
+class Ingresso :
 
-print("Bem vindo ao seu banco.")
+    def __init__(self,identificador,titulodoShow,preco):
+        self.identificador = identificador
+        self.titulodoShow = input("Nome do Show ")
+        self.preco = preco
 
-escolha = int(input("Digite o tipo de conta você quer criar:\n"
-                    "1 - Conta Corrente\n"
-                    "2 - Conta Poupança\n"))
-
-nome = input("Digite o seu nome: ")
-
-numero_conta = randint(0, 1000)
-
-match escolha:
-    case 1:
-        conta = Conta_corrente(numero_conta, nome, 0)
-
-        while True:
-            escolha = int(input("Escolha uma opção:\n"
-                                "1 - Verificar informações\n"
-                                "2 - Deposito\n"
-                                "3 - Sacar\n"
-                                "0 - Sair"))
-            
-            match escolha:
-                case 1:
-                    conta.verificar_info()
-                
-                case 2:
-                    valor = float(input("Qual o valor a depositar:"))
-                    conta.deposito(valor)
-
-                case 3:
-                    valor = float(input("Qual o valor a depositar:"))
-                    conta.sacar(valor)
-
-                case 0:
-                    break
-
-                case _:
-                    print("Opção invalida")
-                    
-    
-    case 2:
-        conta = Conta_poupanca(numero_conta, nome, 0)
-
-        while True:
-            escolha = int(input("Escolha uma opção:\n"
-                                "1 - Verificar informações\n"
-                                "2 - Deposito\n"
-                                "0 - Sair"))
-            
-            match escolha:
-                case 1:
-                    conta.verificar_info()
-                
-                case 2:
-                    valor = float(input("Qual o valor a depositar:"))
-                    conta.deposito(valor)
-
-                case 0:
-                    break
-
-                case _:
-                    print("Opção invalida")
-    
-    case _:
-        print("Opção invalida")
+    def informações ():
+        print(f"O ingresso da {self.identificador} custa {self.preco} para o show do {self.titulodoShow}")
 
 
-    '''
-'''class Eevee:
-    def __init__(self,nome,nivel):
-        self.nome = nome
-        self.nivel = nivel
-        self.tipo = "Normal"
+class Pista(Ingresso):
+    def __init__(self, identificador, titulodoShow, preco):
+        super().__init__(identificador, titulodoShow, preco)
+        self.identificador = "Pista"
+        self.preco = 150
 
-    def ataque_basico(self):
-        print(f'{self.nome} usou Investida! ')
+class Camarote(Ingresso):
+    def __init__(self, identificador, titulodoShow, preco):
+        super().__init__(identificador, titulodoShow, preco)
+        self.identificador = "Camarote"
+        self.preco = 300
 
-class Vaporeon(Eevee):
-    def __init__(self, nome, nivel):
-        super().__init__(nome, nivel)
-        self.tipo = "Água"
+class Vip(Ingresso):
+    def __init__(self, identificador, titulodoShow, preco):
+        super().__init__(identificador, titulodoShow, preco)
+        self.identificador = "Vip"
+        self.preco = 450
 
-    def ataque_basico(self):
-        print(f"{self.nome} usou Jato d'agua! ")
-
-evee = Eevee("Evee",2)
-
-vapor = Vaporeon("Vaporion",4)
-
-evee.ataque_basico()
-vapor.ataque_basico()
-
-print(f"Nível = {evee.nivel}")'''
-from abc import ABC, abstractclassmethod
-
-class Veiculo(ABC):
-    def __init__(self,nome_do_veiculo,quantidade_de_motores,tem_rodas):
-        self.nome_do_veiculo = nome_do_veiculo
-        self.quantidade_de_motores = quantidade_de_motores
-        self.tem_rodas = tem_rodas
-    @abstractclassmethod
-    def buzinar(self):
-        pass
-
-class Carro(Veiculo):
-    def __init__(self, nome_do_veiculo, quantidade_de_motores, tem_rodas):
-        super().__init__(nome_do_veiculo, quantidade_de_motores, tem_rodas)
-    
-    def buzinar(self):
-        print("Biiiii")
-
-class Barco(Veiculo):
-    def __init__(self, nome_do_veiculo, quantidade_de_motores, tem_rodas):
-        super().__init__(nome_do_veiculo, quantidade_de_motores, tem_rodas)
-    def buzinar(self):
-        print("Fooomm")
-
-
-class Aviao(Veiculo):
-    def __init__(self, nome_do_veiculo, quantidade_de_motores, tem_rodas):
-        super().__init__(nome_do_veiculo, quantidade_de_motores, tem_rodas)
         
-    def buzinar(self):
-        print("Tem buzina ?")
-
-carro = Carro("Monza",1,True)
-barco = Barco("lancha",1,False)
-aviao = Aviao("Jatinho",2,True)
-
-carro.buzinar()
-barco.buzinar()
-aviao.buzinar()
-
-
-
-
-
-
 
 
 
